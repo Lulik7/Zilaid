@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Weather icons from Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-cloud-sun"></i> Weather Dashboard</h1>
+            <p>Get real-time weather information for any city</p>
+        </header>
+
+        <main>
+            <!-- Search Section -->
+            <div class="search-section">
+                <div class="search-box">
+                    <input type="text" id="cityInput" placeholder="Enter city name (e.g., London, Paris)">
+                    <button id="searchBtn">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+                <div class="example-cities">
+                    <p>Try: 
+                        <span class="city-tag" data-city="London">London</span> | 
+                        <span class="city-tag" data-city="New York">New York</span> | 
+                        <span class="city-tag" data-city="Tokyo">Tokyo</span> | 
+                        <span class="city-tag" data-city="Sydney">Sydney</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Loading Indicator -->
+            <div id="loading" class="loading hidden">
+                <div class="spinner"><i class="fas fa-sun fa-spin"></i></div>
+                <p>Fetching weather data...</p>
+            </div>
+
+            <!-- Error Message -->
+            <div id="error" class="error hidden">
+                <p><i class="fas fa-exclamation-triangle"></i> <span id="errorMessage"></span></p>
+            </div>
+
+            <!-- Weather Display -->
+            <div id="weatherDisplay" class="weather-display hidden">
+                <div class="weather-header">
+                    <h2 id="cityName">City Name</h2>
+                    <p id="currentDate">Loading date...</p>
+                </div>
+
+                <div class="weather-main">
+                    <div class="temperature-section">
+                        <div class="current-temp">
+                            <span id="temperature">--</span>
+                            <span class="unit">°C</span>
+                        </div>
+                        <div class="weather-condition">
+                            <i id="weatherIcon" class="fas fa-sun"></i>
+                            <span id="weatherDescription">Clear sky</span>
+                        </div>
+                    </div>
+
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <i class="fas fa-temperature-high"></i>
+                            <div>
+                                <span class="label">Feels Like</span>
+                                <span id="feelsLike">--°C</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-tint"></i>
+                            <div>
+                                <span class="label">Humidity</span>
+                                <span id="humidity">--%</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-wind"></i>
+                            <div>
+                                <span class="label">Wind Speed</span>
+                                <span id="windSpeed">-- m/s</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <div>
+                                <span class="label">Pressure</span>
+                                <span id="pressure">-- hPa</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap API</a></p>
+            <p>Data updates every 10 minutes</p>
+        </footer>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
